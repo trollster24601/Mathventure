@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bgvt46vj70x6v"
+path="res://.godot/imported/y2mate.com - Kevin MacLeod  Itty Bitty 8 Bit  NO COPYRIGHT 8bit Music.mp3-86ebdde2ca0bda30d1b808583ab99b0c.mp3str"
+
+[deps]
+
+source_file="res://Soundtrack/y2mate.com - Kevin MacLeod  Itty Bitty 8 Bit  NO COPYRIGHT 8bit Music.mp3"
+dest_files=["res://.godot/imported/y2mate.com - Kevin MacLeod  Itty Bitty 8 Bit  NO COPYRIGHT 8bit Music.mp3-86ebdde2ca0bda30d1b808583ab99b0c.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

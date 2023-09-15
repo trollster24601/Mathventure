@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://lpmah3l0mqop"]
+
+[ext_resource type="Shader" path="res://scenes/parallax.gdshader" id="1_8otnb"]
+[ext_resource type="Script" path="res://scripts/buttons/start.gd" id="1_ipkts"]
+[ext_resource type="Texture2D" uid="uid://b8dkffawcgi7a" path="res://cutted.png" id="2_m5rl4"]
+[ext_resource type="Texture2D" uid="uid://0l5bwugqjhk6" path="res://sprites/SHEESplay.png" id="3_jjrno"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m2xi7"]
+shader = ExtResource("1_8otnb")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.1
+
+[node name="start" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_m2xi7")
+offset_top = -102.0
+offset_right = 1400.0
+offset_bottom = 710.0
+texture = ExtResource("2_m5rl4")
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="."]
+offset_left = 5.0
+offset_top = 307.0
+offset_right = 571.0
+offset_bottom = 397.0
+theme_override_font_sizes/font_size = 30
+text = "BANTU MATH
+MENCARI MAJIKANNYA!!!"
+horizontal_alignment = 1
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="ColorRect2" type="ColorRect" parent="Node2D"]
+offset_top = 665.0
+offset_right = 576.0
+offset_bottom = 1024.0
+color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="ui" type="Node2D" parent="."]
+
+[node name="main" type="Node2D" parent="ui"]
+
+[node name="Control" type="Control" parent="ui/main"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 40.0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="start" type="Button" parent="ui/main/Control"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 752.0
+offset_right = 808.0
+offset_bottom = 954.0
+scale = Vector2(0.4, 0.4)
+icon = ExtResource("3_jjrno")
+flat = true
+script = ExtResource("1_ipkts")
+
+[connection signal="pressed" from="ui/main/Control/start" to="ui/main/Control/start" method="_on_pressed"]

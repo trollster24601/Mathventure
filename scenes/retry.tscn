@@ -1,0 +1,90 @@
+[gd_scene load_steps=8 format=3 uid="uid://dobuxunwg2sr4"]
+
+[ext_resource type="Script" path="res://scripts/buttons/retry.gd" id="1_8vogs"]
+[ext_resource type="Shader" path="res://scenes/parallax.gdshader" id="1_rttk5"]
+[ext_resource type="Texture2D" uid="uid://b8dkffawcgi7a" path="res://cutted.png" id="2_siaso"]
+[ext_resource type="Script" path="res://scripts/HighDisplay.gd" id="3_agsca"]
+[ext_resource type="AudioStream" uid="uid://egdg1bfb8r38" path="res://Soundtrack/game over.mp3" id="4_2xq0c"]
+[ext_resource type="Texture2D" uid="uid://dfhhc5w6d0gk2" path="res://sprites/SHEESretry.png" id="4_q7dnd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uic0r"]
+shader = ExtResource("1_rttk5")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.1
+
+[node name="start" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_uic0r")
+offset_top = -102.0
+offset_right = 1400.0
+offset_bottom = 710.0
+texture = ExtResource("2_siaso")
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="."]
+offset_left = 4.0
+offset_top = 291.0
+offset_right = 570.0
+offset_bottom = 381.0
+theme_override_font_sizes/font_size = 40
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Label"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 101.0
+offset_right = 562.0
+offset_bottom = 206.0
+theme_override_font_sizes/font_size = 23
+text = "Credits:
+Edermunizz (BG Art)
+Kevin MacLeod (BGM)"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Label"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 61.0
+offset_right = 562.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 23
+text = "Highest Score: "
+horizontal_alignment = 1
+script = ExtResource("3_agsca")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="ColorRect2" type="ColorRect" parent="Node2D"]
+offset_top = 665.0
+offset_right = 576.0
+offset_bottom = 1024.0
+color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="ui" type="Node2D" parent="."]
+
+[node name="main" type="Node2D" parent="ui"]
+
+[node name="Control" type="Control" parent="ui/main"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 40.0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="retry" type="Button" parent="ui/main/Control"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 752.0
+offset_right = 807.0
+offset_bottom = 954.0
+scale = Vector2(0.4, 0.4)
+icon = ExtResource("4_q7dnd")
+flat = true
+script = ExtResource("1_8vogs")
+
+[node name="over" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_2xq0c")
+
+[connection signal="pressed" from="ui/main/Control/retry" to="ui/main/Control/retry" method="_on_pressed"]
